@@ -6,6 +6,7 @@ from flask import render_template  # import render_template from "public" flask 
 # import "packages" from "this" project
 from __init__ import app  # Definitions initialization
 from model.jokes import initJokes
+from model.scores import initCool
 from model.users import initUsers
 
 # setup APIs
@@ -39,9 +40,10 @@ def stub():
 def activate_job():
     initJokes()
     initUsers()
+    initCool()
 
 # this runs the application on the development server
 if __name__ == "__main__":
     # change name for testing
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///volumes/sqlite.db'
-    app.run(debug=True, host="0.0.0.0", port="8086")
+    app.run(debug=True, host="0.0.0.0", port="8087")
